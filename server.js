@@ -3,6 +3,8 @@ const express = require('express');
 const hbs = require('hbs'); // handlebars
 const fs = require('fs');
 
+// heroku should set the process.env.PORT
+const port = process.env.PORT || 3000;
 const app = express();
 
 hbs.registerPartials(__dirname + '/views/partials');
@@ -65,10 +67,10 @@ app.get('/bad', (req, res) => {
     })
 });
 
-// listen in port 3000
 // can get a 2nd arg as a function, that we'll invoke till the server is app.
-app.listen(3000, () => {
-    console.log('Server is up on port 3000');
+app.listen(port, () => {
+    console.log(`Server is up on port ${port}`);
 });
 
-// now we can write in the browser: localhost:3000 => and we'll get 'Hello Express'
+// now, if we run locally, we can write in the browser: localhost:3000 => and we'll get 'Hello Express'
+// we can run it with the script - instead of "node server.js" => "npm start" as far it's defined in the package.json
