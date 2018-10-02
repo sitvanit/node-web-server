@@ -9,8 +9,6 @@ const app = express();
 
 hbs.registerPartials(__dirname + '/views/partials');
 
-console.log(__dirname + '/views/partials');
-
 // get started hbs
 app.set('view engine', 'hbs');
 // all of the templates should be in views dir (the default dir of hbs views)
